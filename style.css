@@ -4,36 +4,99 @@ html {
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Cormorant", serif;
     background: #050b12;
     color: white;
     overflow-x: hidden;
 }
-
-/* шрифты */
-@font-face {
-    font-family: "Cinzel";
-    src: url("fonts/Cinzel-Regular.ttf") format("woff2");
-    font-weight: 400;
+.title-main {
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    letter-spacing: 0.08em;
 }
 
-@font-face {
-    font-family: "Cinzel";
-    src: url("fonts/Cinzel-SemiBold.ttf") format("woff2");
+.text-main {
+    font-family: "Cormorant", serif;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.12em;
+}
+.depth-kicker {
+    font-family: "Cinzel", serif;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+}
+
+.depth-title {
+    font-family: "Cinzel", serif;
     font-weight: 600;
 }
 
-@font-face {
-    font-family: "Cormorant";
-    src: url("fonts/CormorantGaramond-Regular.ttf") format("woff2");
+.depth-num {
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+}
+
+.depth-unit {
+    font-family: "Cormorant", serif;
     font-weight: 400;
+}
+.depth-text {
+    font-family: "Cormorant", serif;
+}
+
+.depth-text h3 {
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+}
+
+.artifact-info h2 {
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+}
+
+.artifact-info p {
+    font-family: "Cormorant", serif;
+    font-weight: 300;
+}
+.final h2 {
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+/* шрифты */
+@font-face {
+    font-family: "Cinzel";
+    src: url("fonts/Cinzel-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Cinzel";
+    src: url("fonts/Cinzel-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Cormorant";
-    src: url("fonts/CormorantGaramond-Light.ttf") format("woff2");
-    font-weight: 300;
+    src: url("fonts/CormorantGaramond-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
+
+@font-face {
+    font-family: "Cormorant";
+    src: url("fonts/CormorantGaramond-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 /* общие секции */
 .section {
@@ -357,7 +420,7 @@ button:hover {
 }
 
 /* 50m */
-#depth4 {
+ #depth4 {
     position: relative;
 }
 
@@ -743,6 +806,10 @@ button:hover {
 }
 
 /* 25m пазл */
+#depth3 .depth-header {
+    position: relative;
+    z-index: 6;
+}
 #depth3 {
     position: relative;
     overflow: hidden;
