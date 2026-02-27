@@ -48,7 +48,7 @@ collectibles.forEach((item) => {
     item.addEventListener("click", () => {
         if (item.classList.contains("found")) return;
 
-        // амфора на 50м должна сначала "засветиться"
+        // амфора на 50м "
         if (item.classList.contains("artifact-50") && !item.classList.contains("glow")) return;
 
         item.classList.add("found");
@@ -205,7 +205,7 @@ if (globalBubbles && globalBubbles.children.length === 0) {
     }
 }
 
-/* 50m текст: появление */
+/* 50m текст */
 if (depth4) {
     depth4.classList.add("is-active");
 
@@ -250,15 +250,15 @@ const depth2 = document.getElementById("depth2");
 if (depth2) {
     const obs2 = new IntersectionObserver(
         (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) depth2.classList.add("is-active");
-                else depth2.classList.remove("is-active");
-            });
-        },
-        { threshold: 0.35 }
-    );
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) depth2.classList.add("is-active");
+            else depth2.classList.remove("is-active");
+        });
+    },
+    { threshold: 0.35 }
+);
 
-    obs2.observe(depth2);
+obs2.observe(depth2);
 }
 
 /* 25m пазл */

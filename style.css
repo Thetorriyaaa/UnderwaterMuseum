@@ -9,6 +9,7 @@ body {
     color: white;
     overflow-x: hidden;
 }
+
 .title-main {
     font-family: "Cinzel", serif;
     font-weight: 600;
@@ -1134,4 +1135,177 @@ body.all-found .final button {
 
 .kelp {
     transform: translateX(calc(var(--mx) * 0.06)) translateY(calc(var(--my) * 0.03)) rotate(calc(var(--sway) * 1deg)) scaleY(calc(1 - var(--deep) * 0.08));
+}
+/* =========================
+   АДАПТИВ ДЛЯ ТЕЛЕФОНА
+   ========================= */
+@media (max-width: 768px) {
+    .section {
+        padding: 18px 14px;
+    }
+
+    h1 {
+        font-size: 28px;
+        line-height: 1.15;
+        padding: 0 10px;
+    }
+
+    .depth-title {
+        font-size: 42px;
+        margin-bottom: 14px;
+    }
+
+    .depth-num {
+        font-size: 56px;
+    }
+
+    .depth-unit {
+        font-size: 18px;
+    }
+
+    .depth-subtitle {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+
+    .depth-text {
+        max-width: 92vw;
+        margin-bottom: 18px;
+        padding: 16px;
+    }
+
+    .depth-instruction {
+        max-width: 92vw;
+        padding: 14px 14px;
+    }
+
+    /* карточки описания: вместо "справа" -> снизу по центру */
+    .artifact-info {
+        position: fixed;
+        left: 50%;
+        right: auto;
+        top: auto;
+        bottom: 16px;
+        transform: translateX(-50%);
+
+        width: min(92vw, 420px);
+        max-height: 45vh;
+        overflow: auto;
+
+        z-index: 999999;
+    }
+
+    /* счётчик */
+    .artifact-counter {
+        bottom: 10px;
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    /* 5m артефакт */
+    #depth1 .artifact-img {
+        left: 50%;
+        bottom: 6%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 190px;
+    }
+
+    #depth1 .artifact-img:hover {
+        transform: translateX(-50%) scale(1.04);
+    }
+
+    /* 15m колонны */
+    #depth2 .ruins {
+        width: 92vw;
+        height: 300px;
+    }
+
+    #depth2 .column {
+        width: 70px;
+        border-radius: 18px;
+    }
+
+    #depth2 .column:nth-child(1) {
+        left: 6%;
+        height: 210px;
+    }
+
+    #depth2 .column:nth-child(2) {
+        left: 30%;
+        height: 235px;
+    }
+
+    #depth2 .column:nth-child(3) {
+        left: 54%;
+        height: 220px;
+    }
+
+    #depth2 .column:nth-child(4) {
+        left: 78%;
+        height: 245px;
+    }
+
+    #depth2 .mask-artifact {
+        width: 120px;
+        height: 120px;
+        right: 6%;
+        bottom: 12px;
+    }
+
+    /* 25m пазл */
+    #depth3 .puzzle-wrap {
+        width: min(92vw, 420px);
+    }
+
+    #depth3 .puzzle-board {
+        border-radius: 18px;
+    }
+
+    #depth3 .puzzle-piece {
+        border-radius: 14px;
+    }
+
+    /* 50m фонарик + амфора */
+    .light {
+        width: 220px;
+        height: 220px;
+    }
+
+    #depth4 .artifact-50 {
+        left: 50%;
+        bottom: 8%;
+        transform: translateX(-50%);
+    }
+
+    #depth4 .artifact-50.glow {
+        transform: translateX(-50%) scale(1.08);
+    }
+
+    /* водоросли — чуть меньше, чтобы не съедали экран */
+    .kelp {
+        width: min(180px, 26vw);
+        opacity: 0.28;
+    }
+}
+
+/* совсем маленькие телефоны */
+@media (max-width: 420px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    #startBtn {
+        padding: 14px 26px;
+        font-size: 16px;
+    }
+
+    .depth-num {
+        font-size: 50px;
+    }
+
+    .artifact-info {
+        max-height: 40vh;
+        padding: 16px;
+    }
 }
