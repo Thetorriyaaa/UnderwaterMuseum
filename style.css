@@ -99,7 +99,7 @@ body {
 }
 
 
-/* общие секции */
+
 .section {
     height: 100vh;
     display: flex;
@@ -124,7 +124,7 @@ body {
     background: black;
 }
 
-/* кнопки */
+
 button {
     padding: 14px 28px;
     border: 1px solid white;
@@ -140,7 +140,7 @@ button:hover {
     color: black;
 }
 
-/* затемнение */
+
 .overlay {
     position: fixed;
     top: 0;
@@ -154,7 +154,7 @@ button:hover {
     z-index: 10;
 }
 
-/* вода на первом экране */
+
 .hero::after {
     content: "";
     position: absolute;
@@ -175,7 +175,7 @@ button:hover {
     }
 }
 
-/* дрожание сцены */
+
 @keyframes subtleShake {
     0% {
         transform: translateX(0px);
@@ -190,7 +190,7 @@ button:hover {
     }
 }
 
-/* стартовые пузырьки */
+
 .hero-bubbles {
     position: absolute;
     inset: 0;
@@ -220,7 +220,7 @@ button:hover {
     }
 }
 
-/* кнопка "начать" */
+
 #startBtn {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.6);
@@ -239,7 +239,7 @@ button:hover {
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
 }
 
-/* фонарик */
+
 .light {
     position: fixed;
     width: 300px;
@@ -252,7 +252,7 @@ button:hover {
     z-index: 9999;
 }
 
-/* движение воды */
+
 .water-layer {
     position: fixed;
     inset: 0;
@@ -273,7 +273,7 @@ button:hover {
     }
 }
 
-/* пузырьки глобальные */
+
 .global-bubbles {
     position: fixed;
     inset: 0;
@@ -302,7 +302,7 @@ button:hover {
     }
 }
 
-/* артефакт (общий) */
+
 .artifact {
     display: flex;
     justify-content: center;
@@ -337,7 +337,7 @@ button:hover {
     pointer-events: none;
 }
 
-/* информационный блок */
+
 .artifact-info {
     position: absolute;
     right: 5%;
@@ -376,7 +376,7 @@ button:hover {
     opacity: 0.9;
 }
 
-/* счетчик */
+
 .artifact-counter {
     position: fixed;
     bottom: 30px;
@@ -405,7 +405,7 @@ button:hover {
     opacity: 1;
 }
 
-/* общие артефакты в глубине (если используются) */
+
 .depth .common-artifact {
     position: absolute;
     left: 10%;
@@ -420,7 +420,7 @@ button:hover {
     transition: 0.4s;
 }
 
-/* 50m */
+
  #depth4 {
     position: relative;
 }
@@ -541,7 +541,7 @@ button:hover {
     }
 }
 
-/* 5m */
+
 #depth1 {
     position: relative;
 }
@@ -588,7 +588,7 @@ button:hover {
     height: 600px;
 }
 
-/* текст глубины */
+
 .depth-title {
     font-size: 64px;
     margin-bottom: 20px;
@@ -637,7 +637,7 @@ button:hover {
     }
 }
 
-/* 15m */
+
 #depth2 {
     position: relative;
     overflow: hidden;
@@ -650,7 +650,7 @@ button:hover {
     margin-top: 20px;
 }
 
-/* важное: порядок слоёв */
+
 #depth2 .ruins {
     position: relative;
 }
@@ -710,7 +710,7 @@ button:hover {
     pointer-events: none;
 }
 
-/* 15m маска */
+
 #depth2 .mask-artifact {
     position: absolute;
     right: 6%;
@@ -761,7 +761,7 @@ button:hover {
     filter: none;
 }
 
-/* 15m текст */
+
 #depth2 .depth-instruction--soft {
     max-width: 520px;
     margin: 10px 0 0;
@@ -806,7 +806,7 @@ button:hover {
     transform: translateY(0);
 }
 
-/* 25m пазл */
+
 #depth3 .depth-header {
     position: relative;
     z-index: 6;
@@ -944,7 +944,7 @@ button:hover {
     filter: drop-shadow(0 0 26px rgba(77, 166, 255, 0.55));
 }
 
-/* финал: больше пузырей */
+
 body.all-found .global-bubbles span,
 body.all-found .hero-bubbles span {
     animation-duration: 2.2s !important;
@@ -982,7 +982,7 @@ body.all-found .hero-bubbles span:nth-child(6n) {
     background: rgba(120, 200, 255, 0.85);
 }
 
-/* финальная кнопка */
+
 .final button {
     margin-top: 30px;
     padding: 16px 36px;
@@ -1032,7 +1032,7 @@ body.all-found .final button {
     }
 }
 
-/* водоросли */
+
 .kelp-layer {
     position: fixed;
     inset: 0;
@@ -1136,9 +1136,7 @@ body.all-found .final button {
 .kelp {
     transform: translateX(calc(var(--mx) * 0.06)) translateY(calc(var(--my) * 0.03)) rotate(calc(var(--sway) * 1deg)) scaleY(calc(1 - var(--deep) * 0.08));
 }
-/* =========================
-   АДАПТИВ ДЛЯ ТЕЛЕФОНА
-   ========================= */
+
 @media (max-width: 768px) {
     .section {
         padding: 18px 14px;
@@ -1179,7 +1177,7 @@ body.all-found .final button {
         padding: 14px 14px;
     }
 
-    /* карточки описания: вместо "справа" -> снизу по центру */
+
     .artifact-info {
         position: fixed;
         left: 50%;
@@ -1195,14 +1193,14 @@ body.all-found .final button {
         z-index: 999999;
     }
 
-    /* счётчик */
+    
     .artifact-counter {
         bottom: 10px;
         padding: 10px 16px;
         font-size: 13px;
     }
 
-    /* 5m артефакт */
+    
     #depth1 .artifact-img {
         left: 50%;
         bottom: 6%;
@@ -1215,7 +1213,7 @@ body.all-found .final button {
         transform: translateX(-50%) scale(1.04);
     }
 
-    /* 15m колонны */
+    
     #depth2 .ruins {
         width: 92vw;
         height: 300px;
@@ -1253,7 +1251,7 @@ body.all-found .final button {
         bottom: 12px;
     }
 
-    /* 25m пазл */
+   
     #depth3 .puzzle-wrap {
         width: min(92vw, 420px);
     }
@@ -1266,7 +1264,7 @@ body.all-found .final button {
         border-radius: 14px;
     }
 
-    /* 50m фонарик + амфора */
+    
     .light {
         width: 220px;
         height: 220px;
@@ -1282,14 +1280,14 @@ body.all-found .final button {
         transform: translateX(-50%) scale(1.08);
     }
 
-    /* водоросли — чуть меньше, чтобы не съедали экран */
+  
     .kelp {
         width: min(180px, 26vw);
         opacity: 0.28;
     }
 }
 
-/* совсем маленькие телефоны */
+
 @media (max-width: 420px) {
     h1 {
         font-size: 24px;
@@ -1308,4 +1306,85 @@ body.all-found .final button {
         max-height: 40vh;
         padding: 16px;
     }
+}
+
+
+.bg-objects {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 4;
+}
+
+.bg-obj {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    will-change: transform;
+
+    opacity: 0.25;
+    filter: blur(0px);
+}
+
+@keyframes swimRight {
+    from {
+        transform: translateX(-20vw) scale(var(--sx, 1));
+    }
+
+    to {
+        transform: translateX(120vw) scale(var(--sx, 1));
+    }
+}
+
+@keyframes swimLeft {
+    from {
+        transform: translateX(120vw) scale(var(--sx, 1));
+    }
+
+    to {
+        transform: translateX(-20vw) scale(var(--sx, 1));
+    }
+}
+
+
+.bg-statue {
+    position: fixed;
+    inset: 0;
+    display: block;
+
+    width: 100vw;
+    height: 100vh;
+
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+
+    z-index: 2;
+
+    opacity: 0;
+    transition: opacity 1.1s ease;
+
+    object-fit: cover;
+    object-position: center center;
+
+    filter: brightness(0) contrast(1.2) blur(3px);
+}
+
+.bg-statue.show {
+    opacity: 0.16;
+}
+
+.bg-statue.deep {
+    opacity: 0.10;
+    filter: brightness(0) contrast(1.2) blur(5px);
+}
+
+.bg-statue.bg-ruins {
+    object-fit: cover;
+    object-position: center bottom;
+
+    transform: translateY(35vh) scale(1.35);
+    transform-origin: center bottom;
 }

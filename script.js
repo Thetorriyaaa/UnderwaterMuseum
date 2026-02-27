@@ -7,7 +7,7 @@ const collectibles = document.querySelectorAll(".collectible");
 
 let collected = 0;
 
-/* Счетчик */
+
 function showCounter() {
     if (!counterBox) return;
 
@@ -20,7 +20,7 @@ function showCounter() {
     }, 2200);
 }
 
-/* Финал */
+
 function checkFinal() {
     if (!finalText) return;
 
@@ -35,7 +35,7 @@ function checkFinal() {
     }
 }
 
-/* Кнопка "Начать" */
+
 if (startBtn) {
     startBtn.addEventListener("click", () => {
         const first = document.getElementById("depth1");
@@ -43,12 +43,12 @@ if (startBtn) {
     });
 }
 
-/* Клик по артефактам */
+
 collectibles.forEach((item) => {
     item.addEventListener("click", () => {
         if (item.classList.contains("found")) return;
 
-        // амфора на 50м "
+        
         if (item.classList.contains("artifact-50") && !item.classList.contains("glow")) return;
 
         item.classList.add("found");
@@ -65,12 +65,12 @@ collectibles.forEach((item) => {
     });
 });
 
-/* Перезапуск */
+
 function restart() {
     collected = 0;
     document.body.classList.remove("all-found");
 
-    // предметы
+   
     document.querySelectorAll(".collectible").forEach((item) => {
         item.classList.remove("found", "glow", "revealed");
         item.style.pointerEvents = "";
@@ -79,37 +79,37 @@ function restart() {
         item.style.filter = "";
     });
 
-    // колонны
+   
     document.querySelectorAll("#ruins15 .column").forEach((col) => {
         col.classList.remove("cleared");
     });
 
-    // описания
+    
     document.querySelectorAll(".artifact-info").forEach((box) => {
         box.classList.remove("show");
     });
 
-    // счетчик
+    
     const box = document.getElementById("artifactCounter");
     if (box) {
         box.textContent = "";
         box.classList.remove("show");
     }
 
-    // финальный текст
+    
     const ft = document.getElementById("finalText");
     if (ft) ft.innerText = "Найди все артефакты";
 
-    // пазл
+    
     if (window.resetPuzzle25) window.resetPuzzle25();
 
-    // наверх
+    
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 window.restart = restart;
 
-/* Затемнение при скролле */
+
 window.addEventListener(
     "scroll",
     () => {
@@ -123,7 +123,7 @@ window.addEventListener(
     { passive: true }
 );
 
-/* Параллакс */
+
 window.addEventListener(
     "scroll",
     () => {
@@ -134,7 +134,7 @@ window.addEventListener(
     { passive: true }
 );
 
-/* 50m фонарик */
+
 const depth4 = document.getElementById("depth4");
 const light = document.querySelector("#depth4 .light");
 const amphora = document.querySelector("#depth4 .artifact-50");
@@ -177,7 +177,7 @@ window.addEventListener(
     { passive: true }
 );
 
-/* Пузырьки  */
+
 const heroBubbles = document.querySelector(".hero-bubbles");
 if (heroBubbles && heroBubbles.children.length === 0) {
     for (let i = 0; i < 25; i++) {
@@ -191,7 +191,7 @@ if (heroBubbles && heroBubbles.children.length === 0) {
     }
 }
 
-/* Пузырьки (глобальные) */
+
 const globalBubbles = document.querySelector(".global-bubbles");
 if (globalBubbles && globalBubbles.children.length === 0) {
     for (let i = 0; i < 40; i++) {
@@ -205,7 +205,7 @@ if (globalBubbles && globalBubbles.children.length === 0) {
     }
 }
 
-/* 50m текст */
+
 if (depth4) {
     depth4.classList.add("is-active");
 
@@ -222,7 +222,7 @@ if (depth4) {
     obs.observe(depth4);
 }
 
-/* 15m колонны */
+
 document.addEventListener("DOMContentLoaded", () => {
     const ruins = document.getElementById("ruins15");
     const mask = document.getElementById("mask15");
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-/* 15m текст  */
+
 const depth2 = document.getElementById("depth2");
 if (depth2) {
     const obs2 = new IntersectionObserver(
@@ -261,7 +261,7 @@ if (depth2) {
 obs2.observe(depth2);
 }
 
-/* 25m пазл */
+
 (function () {
     const board = document.getElementById("puzzleBoard");
     if (!board) return;
@@ -410,7 +410,7 @@ obs2.observe(depth2);
     };
 })();
 
-/* водоросли: реакция на мышь */
+
 (function () {
     const kelpLayer = document.querySelector(".kelp-layer");
     const kelps = document.querySelectorAll(".kelp");
@@ -478,4 +478,115 @@ obs2.observe(depth2);
     }
 
     requestAnimationFrame(tick);
+})();
+
+
+(() => {
+    const bg = document.querySelector(".bg-objects");
+    if (!bg) return;
+
+    const BG = {
+        fishRight: "images/bg/fish-right.png",
+        fishLeft: "images/bg/fish-left-small.png",
+        sil15: "images/bg/statue-portrait.png",
+        sil25: "images/bg/ruins-statue.png",    
+        sil50: "images/bg/statue-arms.png",     
+    };
+
+    function rand(a, b) {
+        return a + Math.random() * (b - a);
+    }
+
+    function clamp01(x) {
+        return Math.min(1, Math.max(0, x));
+    }
+
+    function depth01() {
+        const max = document.body.scrollHeight - window.innerHeight;
+        return max > 0 ? clamp01(window.scrollY / max) : 0;
+    }
+
+
+    function spawnFish(direction) {
+        const d = depth01();
+
+        const el = document.createElement("img");
+        el.className = "bg-obj";
+        el.src = direction === "right" ? BG.fishRight : BG.fishLeft;
+
+        const size = Math.round(60 + d * 160);
+        el.style.width = size + "px";
+        el.style.height = "auto";
+
+        
+        el.style.top = Math.round(rand(12, 70)) + "vh";
+
+    
+        if (direction === "right") {
+            el.style.left = "-30vw";
+        } else {
+            el.style.left = "100vw";
+        }
+
+        el.style.opacity = (0.20 + d * 0.25).toFixed(2);
+        el.style.filter = `blur(${(d * 2).toFixed(2)}px)`;
+
+        
+        const dur = Math.max(10, rand(16, 28) - d * 6);
+        el.style.animation = `${direction === "right" ? "swimRight" : "swimLeft"} ${dur}s linear forwards`;
+
+        bg.appendChild(el);
+        setTimeout(() => el.remove(), (dur + 1) * 1000);
+    }
+
+
+    setInterval(() => {
+        const d = depth01();
+        const fishChance = d < 0.35 ? 0.8 : 0.45;
+
+        if (Math.random() < fishChance) {
+            spawnFish(Math.random() < 0.5 ? "right" : "left");
+        }
+    }, 1400);
+
+
+    function makeSilhouette(src, extraClass = "") {
+        const el = document.createElement("img");
+        el.src = src;
+        el.className = "bg-statue" + (extraClass ? " " + extraClass : "");
+        document.body.appendChild(el);
+        return el;
+    }
+
+    const sil15 = makeSilhouette(BG.sil15);          
+    const sil25 = makeSilhouette(BG.sil25, "bg-ruins"); 
+    const sil50 = makeSilhouette(BG.sil50);          
+
+    function isSectionVisible(id, pad = 0.38) {
+        const sec = document.getElementById(id);
+        if (!sec) return false;
+
+        const r = sec.getBoundingClientRect();
+        const h = window.innerHeight;
+
+        return r.top < h * (1 - pad) && r.bottom > h * pad;
+    }
+
+    function updateSilhouettes() {
+      
+        if (isSectionVisible("depth2", 0.38)) sil15.classList.add("show");
+        else sil15.classList.remove("show");
+
+      
+        if (isSectionVisible("depth3", 0.38)) sil25.classList.add("show");
+        else sil25.classList.remove("show");
+
+        
+        if (isSectionVisible("depth4", 0.38)) sil50.classList.add("show", "deep");
+        else sil50.classList.remove("show", "deep");
+    }
+
+    window.addEventListener("scroll", updateSilhouettes, { passive: true });
+    window.addEventListener("resize", updateSilhouettes);
+    updateSilhouettes();
 })();
